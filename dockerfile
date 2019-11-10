@@ -14,5 +14,8 @@
 #3/ Access site localhost
 #http://localhost:3838
 
+#Issues
+#https://github.com/rstudio/shiny/issues/1929
+
 FROM rocker/shiny
 COPY . //srv/shiny-server/
