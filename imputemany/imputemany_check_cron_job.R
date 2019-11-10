@@ -1,11 +1,11 @@
 
 # crontab -e
-# 00 20 * * * Rscript /srv/shiny-server/impute-me/imputemany/imputemany_check_cron_job.R > /home/ubuntu/logs/cron_logs/`date +\%Y\%m\%d\%H\%M\%S`-imputemany-check-cron.log 2>&1
+# 00 20 * * * Rscript /srv/shiny-server/imputemany/imputemany_check_cron_job.R > /home/ubuntu/logs/cron_logs/`date +\%Y\%m\%d\%H\%M\%S`-imputemany-check-cron.log 2>&1
 
 library("mailR")
 library("rJava")
 library("tools")
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 
 emails_to_send <- list()

@@ -1,6 +1,6 @@
 library("shiny")
 
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 
 shinyServer(function(input, output) {
@@ -47,7 +47,7 @@ shinyServer(function(input, output) {
 		
 		
 		#getting the relevant trait name, pmid and SNPs to analyze
-		SNPs_to_analyze<-read.table("/srv/shiny-server/impute-me/opinions/SNPs_to_analyze.txt",sep="\t",stringsAsFactors = F,row.names=1,header=T)
+		SNPs_to_analyze<-read.table("/srv/shiny-server/opinions/SNPs_to_analyze.txt",sep="\t",stringsAsFactors = F,row.names=1,header=T)
 		
 		genotypes<-get_genotypes(uniqueID=uniqueID,request=SNPs_to_analyze)
 		

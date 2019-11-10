@@ -6,8 +6,8 @@ SNPs_to_analyze_file<-"C:/Users/FOLK/Documents/Work/Bioinformatics/2015-08-17_ge
 
 
 
-# source("/srv/shiny-server/impute-me/functions.R")
-# SNPs_to_analyze_file<-"/srv/shiny-server/impute-me/autoimmuneDiseases/SNPs_to_analyze.txt"
+# source("/srv/shiny-server/functions.R")
+# SNPs_to_analyze_file<-"/srv/shiny-server/autoimmuneDiseases/SNPs_to_analyze.txt"
 
 SNPs_to_analyze<-read.table(SNPs_to_analyze_file,sep="\t",stringsAsFactors=F,header=T,row.names=1)
 

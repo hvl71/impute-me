@@ -5,7 +5,7 @@ library("shiny")
 
 options(shiny.maxRequestSize=50*1024^2) 
 
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 
 

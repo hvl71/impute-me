@@ -1,9 +1,9 @@
 
 
 # stop(getwd())
-setwd("/srv/shiny-server/impute-me/imputeme")
+setwd("/srv/shiny-server/imputeme")
 source("../uifunctions.R")
-# source("/srv/shiny-server/impute-me/uifunctions.R")
+# source("/srv/shiny-server/uifunctions.R")
 initialize('hc',TRUE)
 
 shinyUI(bootstrapPage(

@@ -4,7 +4,7 @@ initialize('gmh',TRUE)
 
 
 library(openxlsx)
-trait_file<-"/srv/shiny-server/impute-me/intelligence/2019-03-04_trait_overview.xlsx"
+trait_file<-"/srv/shiny-server/intelligence/2019-03-04_trait_overview.xlsx"
 traits <- read.xlsx(trait_file,rowNames=F)
 rownames(traits) <- traits[,"study_id"]
 traits<-traits[!is.na(traits[,"omit"]) & !traits[,"omit"],]

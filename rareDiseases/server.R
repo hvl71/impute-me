@@ -1,7 +1,7 @@
 library("shiny")
 
 
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 
 shinyServer(function(input, output) {
@@ -34,7 +34,7 @@ shinyServer(function(input, output) {
 			Sys.sleep(3) #wait a little to prevent raw-force fishing	
 			stop(safeError("Did not find a user with this id"))
 		}
-		table_file <-"/srv/shiny-server/impute-me/rareDiseases/SNPs_to_analyze.txt"
+		table_file <-"/srv/shiny-server/rareDiseases/SNPs_to_analyze.txt"
 		request <- table<-read.table(table_file,sep="\t",header=T,stringsAsFactors=F,comment.char="",quote="")
     
 		request<-request[!duplicated(request[,"SNP"]),]

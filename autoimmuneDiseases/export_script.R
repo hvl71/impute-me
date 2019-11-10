@@ -1,4 +1,4 @@
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 
 export_function<-function(uniqueID){
@@ -9,9 +9,9 @@ export_function<-function(uniqueID){
     stop("Did not find a user with this id")
   }
   
-  SNPs_to_analyze_file<-paste0("/srv/shiny-server/impute-me/","autoimmuneDiseases/2016-05-21_SNPs_to_analyze_SOURCE.txt")
+  SNPs_to_analyze_file<-paste0("/srv/shiny-server/","autoimmuneDiseases/2016-05-21_SNPs_to_analyze_SOURCE.txt")
   
-  means_file<-paste0("/srv/shiny-server/impute-me/","autoimmuneDiseases/2016-05-21_means.txt")
+  means_file<-paste0("/srv/shiny-server/","autoimmuneDiseases/2016-05-21_means.txt")
   means<-suppressWarnings(read.table(means_file,sep="\t",header=T,row.names=1,stringsAsFactors=F))
   
   

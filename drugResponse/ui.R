@@ -1,6 +1,6 @@
 
 
-table_file <-"/srv/shiny-server/impute-me/drugResponse/SNPs_to_analyze.txt"
+table_file <-"/srv/shiny-server/drugResponse/SNPs_to_analyze.txt"
 # table_file <-"SNPs_to_analyze.txt"
 SNPs_to_analyze<-read.table(table_file,sep="\t",header=T,stringsAsFactors=F)
 

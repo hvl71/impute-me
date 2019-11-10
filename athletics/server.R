@@ -1,7 +1,7 @@
 library("shiny")
 
 
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 
 
@@ -23,7 +23,7 @@ shinyServer(function(input, output) {
       stop(safeError("Did not find a user with this id"))
     }      
     
-    table_file <-"/srv/shiny-server/impute-me/athletics/SNPs_to_analyze.txt"
+    table_file <-"/srv/shiny-server/athletics/SNPs_to_analyze.txt"
     request<-table<-read.table(table_file,sep="\t",header=T,stringsAsFactors=F,comment.char="",quote="")
   
     

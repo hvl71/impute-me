@@ -1,4 +1,4 @@
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 
 # library(biomaRt)
@@ -234,10 +234,10 @@ load("2015-11-20_all_coding_SNPs.rdata")
 
 
 rm(list=ls())
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 uniqueIDs<-list.files("/home/ubuntu/data/")
-load("/srv/shiny-server/impute-me/nonsenser/2015-11-23_all_coding_SNPs.rdata")
+load("/srv/shiny-server/nonsenser/2015-11-23_all_coding_SNPs.rdata")
 for(uniqueID in uniqueIDs){
 	g1<-get_genotypes(uniqueID,coding_snps,namingLabel="cached.nonsenser")
 	g2<- g1[rownames(coding_snps),"genotype"]

@@ -1,7 +1,7 @@
 library("shiny")
 
 
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 shinyServer(function(input, output) {
   

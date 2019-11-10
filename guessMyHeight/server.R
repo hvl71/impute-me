@@ -1,7 +1,7 @@
 library("shiny")
 
 
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 
 #create the image map
@@ -55,7 +55,7 @@ shinyServer(function(input, output) {
 		
 		if(input$goButton == 0){
 			
-			heights_pre_registered_file<-"/srv/shiny-server/impute-me/guessMyHeight/background_heights.txt"
+			heights_pre_registered_file<-"/srv/shiny-server/guessMyHeight/background_heights.txt"
 			heights_pre_registered<-read.table(heights_pre_registered_file,sep="\t",stringsAsFactors=F,header=T)
 			smoothScatter(
 				x=heights_pre_registered[heights_pre_registered[,"real_gender"]%in%2,"gheight"],
@@ -107,7 +107,7 @@ shinyServer(function(input, output) {
 			gender<-read.table(pDataFile,header=T,stringsAsFactors=F,sep="\t")[1,"gender"]
 			
 			
-			giant_sup_path<-"/srv/shiny-server/impute-me/guessMyHeight/SNPs_to_analyze.txt"
+			giant_sup_path<-"/srv/shiny-server/guessMyHeight/SNPs_to_analyze.txt"
 			giant_sup<-read.table(giant_sup_path,sep="\t",header=T,stringsAsFactors=F,row.names=1)
 			
 			
@@ -142,7 +142,7 @@ shinyServer(function(input, output) {
 			
 			#load database for comparison
 			#this is a file that contains the GWAS heights
-			heights_pre_registered_file<-"/srv/shiny-server/impute-me/guessMyHeight/background_heights.txt"
+			heights_pre_registered_file<-"/srv/shiny-server/guessMyHeight/background_heights.txt"
 			heights_pre_registered<-read.table(heights_pre_registered_file,sep="\t",stringsAsFactors=F,header=T)
 			smoothScatter(
 				x=heights_pre_registered[heights_pre_registered[,"real_gender"]%in%gender,"gheight"],
@@ -267,7 +267,7 @@ shinyServer(function(input, output) {
 			
 			
 			#get the gColour
-			GRS_file_name<-"/srv/shiny-server/impute-me/hairColour/SNPs_to_analyze.txt"
+			GRS_file_name<-"/srv/shiny-server/hairColour/SNPs_to_analyze.txt"
 			GRS_file<-read.table(GRS_file_name,sep="\t",header=T,stringsAsFactors=F)
 			for(component in c("blonde","red")){
 				# print(paste("Getting",component,"g-haircolour"))

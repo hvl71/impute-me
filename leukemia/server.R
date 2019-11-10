@@ -11,10 +11,10 @@ library("shiny")
 
 
 # 
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 dataFolder<-"/home/ubuntu/data/"
-SNPs_to_analyze_file<-"/srv/shiny-server/impute-me/leukemia/SNPs_to_analyze_SOURCE.txt"
-means_file<-"/srv/shiny-server/impute-me/leukemia/2016-05-22_means.txt"
+SNPs_to_analyze_file<-"/srv/shiny-server/leukemia/SNPs_to_analyze_SOURCE.txt"
+means_file<-"/srv/shiny-server/leukemia/2016-05-22_means.txt"
 
 
 

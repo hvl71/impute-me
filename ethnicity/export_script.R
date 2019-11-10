@@ -1,4 +1,4 @@
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 
 
@@ -14,10 +14,10 @@ export_function<-function(uniqueID){
   
   
   #get input constants
-  source("/srv/shiny-server/impute-me/functions.R")
-  load("/srv/shiny-server/impute-me/ethnicity/2017-04-03_ethnicity_snps.rdata")
-  load("/srv/shiny-server/impute-me/ethnicity/2017-04-03_ethnicity_pca.rdata")
-  ethnicity_desc<-read.table("/srv/shiny-server/impute-me/ethnicity/2017-04-03_ethnicity_descriptions.txt",sep="\t",header=T,stringsAsFactors = F,row.names=1)
+  source("/srv/shiny-server/functions.R")
+  load("/srv/shiny-server/ethnicity/2017-04-03_ethnicity_snps.rdata")
+  load("/srv/shiny-server/ethnicity/2017-04-03_ethnicity_pca.rdata")
+  ethnicity_desc<-read.table("/srv/shiny-server/ethnicity/2017-04-03_ethnicity_descriptions.txt",sep="\t",header=T,stringsAsFactors = F,row.names=1)
   
   
   

@@ -1,11 +1,11 @@
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 
 export_function<-function(uniqueID){
   # dataFolder<-"/home/ubuntu/data/"
-  # snps_file<-"/srv/shiny-server/impute-me/AllDiseases/2018-05-28_semi_curated_version_gwas_central.rdata"
-  # trait_file<-"/srv/shiny-server/impute-me/AllDiseases/2018-05-28_trait_overoverview.rdata"
-  table_file <-"/srv/shiny-server/impute-me/precisionMedicine/SNPs_to_analyze.txt"
+  # snps_file<-"/srv/shiny-server/AllDiseases/2018-05-28_semi_curated_version_gwas_central.rdata"
+  # trait_file<-"/srv/shiny-server/AllDiseases/2018-05-28_trait_overoverview.rdata"
+  table_file <-"/srv/shiny-server/precisionMedicine/SNPs_to_analyze.txt"
   SNPs_to_analyze<-read.table(table_file,sep="\t",header=T,stringsAsFactors=F)
   SNPs_to_analyze[,"PMID"] <- as.character(SNPs_to_analyze[,"PMID"])
   

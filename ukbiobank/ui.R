@@ -4,7 +4,7 @@ initialize('gmh',TRUE)
 
 
 
-load("/srv/shiny-server/impute-me/ukbiobank/2017-09-28_trait_overoverview.rdata")
+load("/srv/shiny-server/ukbiobank/2017-09-28_trait_overoverview.rdata")
 
 
 #omit traits

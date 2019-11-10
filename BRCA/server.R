@@ -1,7 +1,7 @@
 library("shiny")
 
 
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 
 # Define server logic for random distribution application
@@ -31,7 +31,7 @@ shinyServer(function(input, output) {
 		# gender<-read.table(pDataFile,header=T,stringsAsFactors=F,sep="\t")[1,"gender"]
 		
 		
-		BRCA_table_file <-"/srv/shiny-server/impute-me/BRCA/SNPs_to_analyze.txt"
+		BRCA_table_file <-"/srv/shiny-server/BRCA/SNPs_to_analyze.txt"
 		BRCA_table<-read.table(BRCA_table_file,sep="\t",header=T,stringsAsFactors=F)
 
 		rownames(BRCA_table)<-BRCA_table[,"SNP"]

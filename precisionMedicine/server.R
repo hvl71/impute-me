@@ -1,11 +1,11 @@
 library("shiny")
 
 
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 # source("../functions.R")
 
 
-table_file <-"/srv/shiny-server/impute-me/precisionMedicine/SNPs_to_analyze.txt"
+table_file <-"/srv/shiny-server/precisionMedicine/SNPs_to_analyze.txt"
 # table_file <-"SNPs_to_analyze.txt"
 
 

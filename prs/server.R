@@ -1,6 +1,6 @@
 library("shiny")
 library("jsonlite")
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 
 
@@ -68,10 +68,10 @@ shinyServer(function(input, output) {
     }
     if(ethnicity_group == "global"){
       #do nothing. Note the density curve location.
-      densityCurvePath<-"/srv/shiny-server/impute-me/prs/2019-09-17_densities_ALL.rdata"
+      densityCurvePath<-"/srv/shiny-server/prs/2019-09-17_densities_ALL.rdata"
     }else{
       #note the density curve location
-      densityCurvePath<-paste0("/srv/shiny-server/impute-me/prs/2019-09-17_densities_",ethnicity_group,".rdata")
+      densityCurvePath<-paste0("/srv/shiny-server/prs/2019-09-17_densities_",ethnicity_group,".rdata")
     }
     
     

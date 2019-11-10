@@ -2,13 +2,13 @@
 # 
 #Strategy - setup this to run every hour on the hour, 
 #
-# 50 * * * * Rscript /srv/shiny-server/impute-me/imputeme/imputation_cron_job.R > /home/ubuntu/misc_files/cron_logs/`date +\%Y\%m\%d\%H\%M\%S`-impute-cron.log 2>&1
+# 50 * * * * Rscript /srv/shiny-server/imputeme/imputation_cron_job.R > /home/ubuntu/misc_files/cron_logs/`date +\%Y\%m\%d\%H\%M\%S`-impute-cron.log 2>&1
 
 
 library("mailR")
 library("rJava")
 library("tools")
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 
 #bulk running parameter
@@ -236,28 +236,28 @@ for(uniqueID in uniqueIDs){
 
   #making a link out to where the data can be retrieved	(different on hub and node)
   if(serverRole== "Node"){
-    cmd6 <- paste("ssh ubuntu@",hubAddress," 'ln -s /home/ubuntu/data/",uniqueID,"/",uniqueID,".simple_format.zip /srv/shiny-server/impute-me/www/",uniqueID,".simple_format.zip'",sep="")
+    cmd6 <- paste("ssh ubuntu@",hubAddress," 'ln -s /home/ubuntu/data/",uniqueID,"/",uniqueID,".simple_format.zip /srv/shiny-server/www/",uniqueID,".simple_format.zip'",sep="")
     system(cmd6)
     
-    cmd7 <- paste("ssh ubuntu@",hubAddress," 'ln -s /home/ubuntu/data/",uniqueID,"/",uniqueID,".gen.zip /srv/shiny-server/impute-me/www/",uniqueID,".gen.zip'",sep="")
+    cmd7 <- paste("ssh ubuntu@",hubAddress," 'ln -s /home/ubuntu/data/",uniqueID,"/",uniqueID,".gen.zip /srv/shiny-server/www/",uniqueID,".gen.zip'",sep="")
     system(cmd7)
     
-    cmd8 <- paste("ssh ubuntu@",hubAddress," 'ln -s /home/ubuntu/data/",uniqueID,"/",uniqueID,"_data.json /srv/shiny-server/impute-me/www/",uniqueID,"_data.json'",sep="")
+    cmd8 <- paste("ssh ubuntu@",hubAddress," 'ln -s /home/ubuntu/data/",uniqueID,"/",uniqueID,"_data.json /srv/shiny-server/www/",uniqueID,"_data.json'",sep="")
     system(cmd8)
     
     
   }else if(serverRole== "Hub"){
     file.symlink(
       from=paste("/home/ubuntu/data/",uniqueID,"/",uniqueID,".simple_format.zip",sep=""),
-      to=paste("/srv/shiny-server/impute-me/www/",uniqueID,".simple_format.zip",sep="")
+      to=paste("/srv/shiny-server/www/",uniqueID,".simple_format.zip",sep="")
     )
     file.symlink(
       from=paste("/home/ubuntu/data/",uniqueID,"/",uniqueID,".gen.zip",sep=""),
-      to=paste("/srv/shiny-server/impute-me/www/",uniqueID,".gen.zip",sep="")
+      to=paste("/srv/shiny-server/www/",uniqueID,".gen.zip",sep="")
     )
     file.symlink(
       from=paste("/home/ubuntu/data/",uniqueID,"/",uniqueID,"_data.json",sep=""),
-      to=paste("/srv/shiny-server/impute-me/www/",uniqueID,"_data.json",sep="")
+      to=paste("/srv/shiny-server/www/",uniqueID,"_data.json",sep="")
     )
     
   }else{stop("very odd")}

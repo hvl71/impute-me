@@ -1,4 +1,4 @@
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 
 export_function<-function(uniqueID){
@@ -22,7 +22,7 @@ export_function<-function(uniqueID){
   
   
   #getting the current best predictor SNPs
-  giant_sup_path<-"/srv/shiny-server/impute-me/guessMyHeight/SNPs_to_analyze.txt"
+  giant_sup_path<-"/srv/shiny-server/guessMyHeight/SNPs_to_analyze.txt"
   giant_sup<-read.table(giant_sup_path,sep="\t",header=T,stringsAsFactors=F,row.names=1)
   
   
@@ -68,7 +68,7 @@ export_function<-function(uniqueID){
   
   
   #get the gColour
-  GRS_file_name<-"/srv/shiny-server/impute-me/hairColour/SNPs_to_analyze.txt"
+  GRS_file_name<-"/srv/shiny-server/hairColour/SNPs_to_analyze.txt"
   GRS_file<-read.table(GRS_file_name,sep="\t",header=T,stringsAsFactors=F)
   for(component in c("blonde","red")){
     # print(paste("Getting",component,"g-haircolour"))

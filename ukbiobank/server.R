@@ -1,9 +1,9 @@
 library("shiny")
 
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 dataFolder<-"/home/ubuntu/data/"
-snps_file<-"/srv/shiny-server/impute-me/ukbiobank/2017-09-28_semi_curated_version_ukbiobank.rdata"
-trait_file<-"/srv/shiny-server/impute-me/ukbiobank/2017-09-28_trait_overoverview.rdata"
+snps_file<-"/srv/shiny-server/ukbiobank/2017-09-28_semi_curated_version_ukbiobank.rdata"
+trait_file<-"/srv/shiny-server/ukbiobank/2017-09-28_trait_overoverview.rdata"
 
 
 
@@ -79,12 +79,12 @@ shinyServer(function(input, output) {
     }
     if(ethnicity_group == "global"){
       #do nothing. Note the density curve location.
-      # densityCurvePath<-"/srv/shiny-server/impute-me/ukbiobank/2017-07-01_densities_ALL.rdata"
+      # densityCurvePath<-"/srv/shiny-server/ukbiobank/2017-07-01_densities_ALL.rdata"
     }else{
       #then replace the MAF with the correct superpopulation group
       SNPs_to_analyze[,"minor_allele_freq"] <- SNPs_to_analyze[,paste0(ethnicity_group,"_AF")]
       #note the density curve location
-      # densityCurvePath<-paste0("/srv/shiny-server/impute-me/ukbiobank/2017-07-01_densities_",ethnicity_group,".rdata")
+      # densityCurvePath<-paste0("/srv/shiny-server/ukbiobank/2017-07-01_densities_",ethnicity_group,".rdata")
     }
     #then explain which choice was made
     ethnicity_explanation_text <- sub("_CHOICE_",ethnicities_labels[ethnicity_group],ethnicity_explanation_text)

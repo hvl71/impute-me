@@ -676,8 +676,8 @@ for(uniqueID in uniqueIDs){
     file.rename(old_name,new_name)
     
     #check links
-    old_link_name<-paste0("/srv/shiny-server/impute-me/www/",uniqueID,".simple_format.zip")
-    new_link_name<-paste0("/srv/shiny-server/impute-me/www/",uniqueID,".simple_format.zip")
+    old_link_name<-paste0("/srv/shiny-server/www/",uniqueID,".simple_format.zip")
+    new_link_name<-paste0("/srv/shiny-server/www/",uniqueID,".simple_format.zip")
     if(file.exists(old_link_name)){
       
       print(paste("link from",old_link_name,"to",new_name))

@@ -2,11 +2,11 @@ library("shiny")
 
 
 #load functions and define paths of reference files and data directory
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 dataFolder<-"/home/ubuntu/data/"
-snps_file<-"/srv/shiny-server/impute-me/AllDiseases/2019-03-04_semi_curated_version_gwas_central.rdata"
-trait_file<-"/srv/shiny-server/impute-me/AllDiseases/2019-03-04_trait_overview.xlsx"
-all_snp_trait_file <- "/srv/shiny-server/impute-me/prs/2019-03-05_study_list.xlsx"
+snps_file<-"/srv/shiny-server/AllDiseases/2019-03-04_semi_curated_version_gwas_central.rdata"
+trait_file<-"/srv/shiny-server/AllDiseases/2019-03-04_trait_overview.xlsx"
+all_snp_trait_file <- "/srv/shiny-server/prs/2019-03-05_study_list.xlsx"
 
 
 
@@ -111,12 +111,12 @@ shinyServer(function(input, output) {
     }
     if(ethnicity_group == "global"){
       #do nothing. Note the density curve location.
-      densityCurvePath<-"/srv/shiny-server/impute-me/AllDiseases/2019-03-13_densities_ALL.rdata"
+      densityCurvePath<-"/srv/shiny-server/AllDiseases/2019-03-13_densities_ALL.rdata"
     }else{
       #then replace the MAF with the correct superpopulation group
       SNPs_to_analyze[,"minor_allele_freq"] <- SNPs_to_analyze[,paste0(ethnicity_group,"_AF")]
       #note the density curve location
-      densityCurvePath<-paste0("/srv/shiny-server/impute-me/AllDiseases/2019-03-13_densities_",ethnicity_group,".rdata")
+      densityCurvePath<-paste0("/srv/shiny-server/AllDiseases/2019-03-13_densities_",ethnicity_group,".rdata")
     }
     
     
@@ -281,10 +281,10 @@ shinyServer(function(input, output) {
       #replace the distribution curves
       if(ethnicity_group == "global"){
         #do nothing. Note the density curve location.
-        densityCurvePath<-"/srv/shiny-server/impute-me/prs/2019-09-17_densities_ALL.rdata"
+        densityCurvePath<-"/srv/shiny-server/prs/2019-09-17_densities_ALL.rdata"
       }else{
         #note the density curve location
-        densityCurvePath<-paste0("/srv/shiny-server/impute-me/prs/2019-09-17_densities_",ethnicity_group,".rdata")
+        densityCurvePath<-paste0("/srv/shiny-server/prs/2019-09-17_densities_",ethnicity_group,".rdata")
       }
 
       
@@ -470,7 +470,7 @@ shinyServer(function(input, output) {
     
     #if using all-SNP prs, then overwrite the data
     if(use_all_snp_score){
-      all_snp_traits <- read.xlsx("/srv/shiny-server/impute-me/prs/2019-03-05_study_list.xlsx",rowNames=T)
+      all_snp_traits <- read.xlsx("/srv/shiny-server/prs/2019-03-05_study_list.xlsx",rowNames=T)
       if(!study_id %in% rownames(all_snp_traits))stop(safeError("All SNP trait data not available for this study"))
       known<-all_snp_traits[study_id,"known_heritability"]
       total <-all_snp_traits[study_id,"total_heritability"]

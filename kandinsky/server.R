@@ -1,7 +1,7 @@
 library("shiny")
 library("kandinsky")
 
-source("/srv/shiny-server/impute-me/functions.R")
+source("/srv/shiny-server/functions.R")
 
 dataFolder<-"/home/ubuntu/data/"
 
