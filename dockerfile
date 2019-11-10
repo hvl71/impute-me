@@ -11,10 +11,8 @@
 #in inter-active mode:
 #docker run --rm -p 3838:3838 impute-me:v0.0.1
 
-
-
 #3/ Access site localhost
-#http://localhost:3838/impute-me
+#http://localhost:3838
 
 FROM rocker/shiny
 COPY . //srv/shiny-server/
