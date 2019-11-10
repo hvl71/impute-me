@@ -688,7 +688,7 @@ summarize_imputation<-function(
   close(f)
   #determine if it is a bulk or single imputation
   crontabs<-grep("^#",system("crontab -l",intern=T),invert = T,value=T)
-  crontabs<-sub(" .+$","",sub("^.+Rscript /home/ubuntu/srv/impute-me/imputeme/","",crontabs))
+  crontabs<-sub(" .+$","",sub("^.+Rscript /srv/shiny-server/impute-me/imputeme/","",crontabs))
   if(any(c("bulk_imputation_cron_job.R","imputation_cron_job.R")%in%crontabs)){
     pData<-read.table(paste0(prepDestinationDir,"/pData.txt"),header=T,sep="\t",stringsAsFactors = F)
     if("imputation_cron_job.R"%in%crontabs){
@@ -972,7 +972,7 @@ crawl_for_snps_to_analyze<-function(uniqueIDs=NULL){
   
   #getting a list of SNPs to analyze
   all_SNPs<-data.frame(SNP=vector(),chr_name=vector(),stringsAsFactors = F)		
-  for(module in list.files("/home/ubuntu/srv/impute-me",full.names=T)){
+  for(module in list.files("/srv/shiny-server/impute-me",full.names=T)){
     if(!file.info(module)["isdir"])next
     if("SNPs_to_analyze.txt" %in% list.files(module)){
       SNPs_to_analyze<-read.table(paste(module,"/SNPs_to_analyze.txt",sep=""),sep="\t",stringsAsFactors=F,header=T,quote="",comment="")
@@ -1020,7 +1020,7 @@ crawl_for_snps_to_analyze<-function(uniqueIDs=NULL){
   
   
   #getting the nonsenser SNPs if possible
-  e<-try(load("/home/ubuntu/srv/impute-me/nonsenser/2015-12-16_all_coding_SNPs.rdata"))
+  e<-try(load("/srv/shiny-server/impute-me/nonsenser/2015-12-16_all_coding_SNPs.rdata"))
   if(class(e)!="try-error"){
     for(uniqueID in uniqueIDs){
       genotypes<-try(get_genotypes(uniqueID,coding_snps,namingLabel="cached.nonsenser"))
@@ -1030,9 +1030,9 @@ crawl_for_snps_to_analyze<-function(uniqueIDs=NULL){
   
   
   #getting the AllDiseases + ukbiobank SNPs if possible
-  load("/home/ubuntu/srv/impute-me/AllDiseases/2019-03-04_all_gwas_snps.rdata")
+  load("/srv/shiny-server/impute-me/AllDiseases/2019-03-04_all_gwas_snps.rdata")
   e1<-gwas_snps
-  load("/home/ubuntu/srv/impute-me/ukbiobank/2017-09-28_all_ukbiobank_snps.rdata")
+  load("/srv/shiny-server/impute-me/ukbiobank/2017-09-28_all_ukbiobank_snps.rdata")
   e2<-gwas_snps
   e2<-e2[!rownames(e2)%in%rownames(e1),]
   e<-rbind(e1,e2)
@@ -1044,7 +1044,7 @@ crawl_for_snps_to_analyze<-function(uniqueIDs=NULL){
   
   
   #getting the ethnicity SNPs if possible
-  e<-try(load("/home/ubuntu/srv/impute-me/ethnicity/2017-04-03_ethnicity_snps.rdata"))
+  e<-try(load("/srv/shiny-server/impute-me/ethnicity/2017-04-03_ethnicity_snps.rdata"))
   if(class(e)!="try-error"){
     for(uniqueID in uniqueIDs){
       genotypes<-try(get_genotypes(uniqueID,ethnicity_snps,namingLabel="cached.ethnicity"))
@@ -1511,7 +1511,7 @@ generate_report<-function(uniqueIDs=NULL, filename=NULL, updateProgress = update
     if(length(filename)!=1)stop("filename must be of length 1")
     
   }
-  filepath <- paste0("/home/ubuntu/srv/impute-me/www/",filename)
+  filepath <- paste0("/srv/shiny-server/impute-me/www/",filename)
   relative_webpath <- paste0("www/",filename)
   pdf(filepath,width=5,height=8)
   layout(matrix(1:6,nrow=3,byrow=T))
@@ -1661,10 +1661,10 @@ run_export_script<-function(uniqueIDs=NULL,modules=NULL, delay=0){
   }
   
   if(is.null(modules)){
-    modules<-list.files("/home/ubuntu/srv/impute-me/")
+    modules<-list.files("/srv/shiny-server/impute-me/")
   }else{
     if(class(modules)!="character")stop("modules must be of class character")
-    if(!all(file.exists(paste("/home/ubuntu/srv/impute-me/",modules,sep=""))))stop("Not all modules given were found")
+    if(!all(file.exists(paste("/srv/shiny-server/impute-me/",modules,sep=""))))stop("Not all modules given were found")
   }
   
   
@@ -1705,7 +1705,7 @@ run_export_script<-function(uniqueIDs=NULL,modules=NULL, delay=0){
     
     #check if ethnicity is in pData, and if not save it there (because it is needed elsewhere)
     if(!"ethnicity"%in%colnames(pData)){
-      source(paste(paste0("/home/ubuntu/srv/impute-me/","ethnicity"  ,"/export_script.R")))
+      source(paste(paste0("/srv/shiny-server/impute-me/","ethnicity"  ,"/export_script.R")))
       ethnicity <- try(export_function(uniqueID))
       if(class(ethnicity)=="try-error"){
         ethnicity<-NA
@@ -1728,12 +1728,12 @@ run_export_script<-function(uniqueIDs=NULL,modules=NULL, delay=0){
     #get remaining non-ethnicity modules
     module_count <- 0
     for(module in modules){
-      if(!file.info(paste0("/home/ubuntu/srv/impute-me/",module))["isdir"])next
-      if("export_script.R" %in% list.files(paste0("/home/ubuntu/srv/impute-me/",module))){
+      if(!file.info(paste0("/srv/shiny-server/impute-me/",module))["isdir"])next
+      if("export_script.R" %in% list.files(paste0("/srv/shiny-server/impute-me/",module))){
         
         print(paste(Sys.time(),"Running module",module,"for",uniqueID))
         if(exists("export_function"))suppressWarnings(rm("export_function"))
-        source(paste(paste0("/home/ubuntu/srv/impute-me/",module,"/export_script.R")))
+        source(paste(paste0("/srv/shiny-server/impute-me/",module,"/export_script.R")))
         if(!exists("export_function"))stop(paste("In module",module,"there was an export_script.R without an export_function"))
         exp <- try(export_function(uniqueID))
         if(class(exp)=="try-error"){next}
@@ -2901,14 +2901,14 @@ summarize_imputemany_json<-function(uniqueIDs, name){
   o2 <- t(o1)
   
   #add in phenodata for AllDisease
-  trait_path1 <- "/home/ubuntu/srv/impute-me/AllDiseases/2019-03-04_trait_overview.xlsx"
+  trait_path1 <- "/srv/shiny-server/impute-me/AllDiseases/2019-03-04_trait_overview.xlsx"
   library(openxlsx)
   traits <- read.xlsx(trait_path1,rowNames=T)
   insert_block1 <- traits[rownames(o2),]
   colnames(insert_block1) <- paste0("AllDiseases_",colnames(insert_block1))
   
   #add in phenodata for UKbiobank
-  trait_path2 <- "/home/ubuntu/srv/impute-me/ukbiobank/2017-09-28_trait_overoverview.rdata"
+  trait_path2 <- "/srv/shiny-server/impute-me/ukbiobank/2017-09-28_trait_overoverview.rdata"
   load(trait_path2)
   insert_block2 <- traits[rownames(o2),]
   colnames(insert_block2) <- paste0("ukbiobank_",colnames(insert_block2))
@@ -2923,7 +2923,7 @@ summarize_imputemany_json<-function(uniqueIDs, name){
   grapper_preventer <- paste(sample(LETTERS,8),collapse="")  
   dir_out <- paste0("www/summary_",grapper_preventer,"/")
   file_out <- paste0(dir_out,name,"_summary.xlsx")
-  file_out_long <- paste0("/home/ubuntu/srv/impute-me/",file_out)
+  file_out_long <- paste0("/srv/shiny-server/impute-me/",file_out)
   if(length(grep("/$",hubAddress))){
     file_out_web <- paste0(hubAddress,file_out)  
   }else{

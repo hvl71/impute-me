@@ -1,5 +1,5 @@
 # stop(getwd())
-setwd("/home/ubuntu/srv/impute-me/imputeme")
+setwd("/srv/shiny-server/impute-me/imputeme")
 source("../uifunctions.R")
 initialize('hc',TRUE)
 

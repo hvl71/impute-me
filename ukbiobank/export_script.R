@@ -1,10 +1,10 @@
-source("/home/ubuntu/srv/impute-me/functions.R")
+source("/srv/shiny-server/impute-me/functions.R")
 
 
 export_function<-function(uniqueID){
   # dataFolder<-"/home/ubuntu/data/"
-  snps_file<-"/home/ubuntu/srv/impute-me/ukbiobank/2017-09-28_semi_curated_version_ukbiobank.rdata"
-  trait_file<-"/home/ubuntu/srv/impute-me/ukbiobank/2017-09-28_trait_overoverview.rdata"
+  snps_file<-"/srv/shiny-server/impute-me/ukbiobank/2017-09-28_semi_curated_version_ukbiobank.rdata"
+  trait_file<-"/srv/shiny-server/impute-me/ukbiobank/2017-09-28_trait_overoverview.rdata"
   
   #testing
   #preload

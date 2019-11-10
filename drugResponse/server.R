@@ -1,11 +1,11 @@
 library("shiny")
 
 
-source("/home/ubuntu/srv/impute-me/functions.R")
+source("/srv/shiny-server/impute-me/functions.R")
 # source("../functions.R")
 
 
-table_file <-"/home/ubuntu/srv/impute-me/drugResponse/SNPs_to_analyze.txt"
+table_file <-"/srv/shiny-server/impute-me/drugResponse/SNPs_to_analyze.txt"
 # table_file <-"SNPs_to_analyze.txt"
 
 

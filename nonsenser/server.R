@@ -1,7 +1,7 @@
 library("shiny")
 
 options(shiny.sanitize.errors=F)
-source("/home/ubuntu/srv/impute-me/functions.R")
+source("/srv/shiny-server/impute-me/functions.R")
 
 
 # uniqueID<-"id_613z86871"
@@ -34,7 +34,7 @@ shinyServer(function(input, output) {
 		#Get gender
 		# gender<-read.table(pDataFile,header=T,stringsAsFactors=F,sep="\t")[1,"gender"]
 		
-		load("/home/ubuntu/srv/impute-me/nonsenser/2017-04-05_all_coding_SNPs.rdata")
+		load("/srv/shiny-server/impute-me/nonsenser/2017-04-05_all_coding_SNPs.rdata")
 		coding_snps[,"SNP"]<-rownames(coding_snps)
 
 		#get genotypes and calculate gheight

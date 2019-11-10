@@ -1,8 +1,8 @@
-source("/home/ubuntu/srv/impute-me/functions.R")
+source("/srv/shiny-server/impute-me/functions.R")
 
 
 export_function<-function(uniqueID){
-  table_file <-"/home/ubuntu/srv/impute-me/drugResponse/SNPs_to_analyze.txt"
+  table_file <-"/srv/shiny-server/impute-me/drugResponse/SNPs_to_analyze.txt"
   SNPs_to_analyze<-read.table(table_file,sep="\t",header=T,stringsAsFactors=F)
   SNPs_to_analyze[,"PMID"] <- as.character(SNPs_to_analyze[,"PMID"])
   

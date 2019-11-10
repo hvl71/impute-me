@@ -1,5 +1,5 @@
 library("shiny")
-source("/home/ubuntu/srv/impute-me/functions.R")
+source("/srv/shiny-server/impute-me/functions.R")
 
 
 #Replace 'template' with name of module throughout the script

@@ -1,4 +1,4 @@
-source("/home/ubuntu/srv/impute-me/functions.R")
+source("/srv/shiny-server/impute-me/functions.R")
 
 
 export_function<-function(uniqueID){
@@ -9,7 +9,7 @@ export_function<-function(uniqueID){
     stop("Did not find a user with this id")
   }
   
-  table_file <-"/home/ubuntu/srv/impute-me/rareDiseases/SNPs_to_analyze.txt"
+  table_file <-"/srv/shiny-server/impute-me/rareDiseases/SNPs_to_analyze.txt"
   request <- table<-read.table(table_file,sep="\t",header=T,stringsAsFactors=F,comment.char="",quote="")
   
   #get data

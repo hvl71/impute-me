@@ -1,11 +1,11 @@
 
 # crontab -e
-# 00 20 * * * Rscript /home/ubuntu/srv/impute-me/imputeme/space_check_cron_job.R > /home/ubuntu/misc_files/cron_logs/`date +\%Y\%m\%d\%H\%M\%S`-space-check-cron.log 2>&1
+# 00 20 * * * Rscript /srv/shiny-server/impute-me/imputeme/space_check_cron_job.R > /home/ubuntu/misc_files/cron_logs/`date +\%Y\%m\%d\%H\%M\%S`-space-check-cron.log 2>&1
 
 library("mailR")
 library("rJava")
 library("tools")
-source("/home/ubuntu/srv/impute-me/functions.R")
+source("/srv/shiny-server/impute-me/functions.R")
 
 
 df1<-system("df",intern=T)

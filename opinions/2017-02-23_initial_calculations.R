@@ -133,8 +133,8 @@ write.table(data,file="opinions/SNPs_to_analyze.txt",col.names=T,row.names=F,quo
 
 #2017-03-14 re-calculate
 rm(list=ls())
-source("/home/ubuntu/srv/impute-me/functions.R")
-SNPs_to_analyze<-read.table("/home/ubuntu/srv/impute-me/opinions/SNPs_to_analyze.txt",sep="\t",stringsAsFactors = F,row.names=1,header=T)
+source("/srv/shiny-server/impute-me/functions.R")
+SNPs_to_analyze<-read.table("/srv/shiny-server/impute-me/opinions/SNPs_to_analyze.txt",sep="\t",stringsAsFactors = F,row.names=1,header=T)
 
 
 previous_g_opinions<-vector()

@@ -1,8 +1,8 @@
 
 # crontab -e
-# 00 20 * * * Rscript /home/ubuntu/srv/impute-me/imputeme/deletion_cron_job.R > /home/ubuntu/misc_files/cron_logs/`date +\%Y\%m\%d\%H\%M\%S`-delete-cron.log 2>&1
+# 00 20 * * * Rscript /srv/shiny-server/impute-me/imputeme/deletion_cron_job.R > /home/ubuntu/misc_files/cron_logs/`date +\%Y\%m\%d\%H\%M\%S`-delete-cron.log 2>&1
 
-source("/home/ubuntu/srv/impute-me/functions.R")
+source("/srv/shiny-server/impute-me/functions.R")
 
 uniqueIDs<-list.files("/home/ubuntu/data")
 
@@ -18,8 +18,8 @@ for(uniqueID in uniqueIDs){
   if(!all(c("protect_from_deletion","first_timeStamp")%in%colnames(pData)))next
   
   #DNA-traceable files - links
-  f1<-paste("/home/ubuntu/srv/impute-me/www/",uniqueID,".simple_format.zip",sep="")
-  f2<-paste("/home/ubuntu/srv/impute-me/www/",uniqueID,".gen.zip",sep="")
+  f1<-paste("/srv/shiny-server/impute-me/www/",uniqueID,".simple_format.zip",sep="")
+  f2<-paste("/srv/shiny-server/impute-me/www/",uniqueID,".gen.zip",sep="")
   
   #DNA-traceable files - data
   f3<-paste("/home/ubuntu/data/",uniqueID,"/",uniqueID,".gen.zip",sep="")
@@ -27,7 +27,7 @@ for(uniqueID in uniqueIDs){
   f5<-paste("/home/ubuntu/data/",uniqueID,"/",uniqueID,".input_data.zip",sep="")
   
   #Non-traceable files - link
-  f6<-paste("/home/ubuntu/srv/impute-me/www/",uniqueID,"_data.json",sep="")
+  f6<-paste("/srv/shiny-server/impute-me/www/",uniqueID,"_data.json",sep="")
   
   #non-traceable files - data
   f7<-paste("/home/ubuntu/data/",uniqueID,"/",uniqueID,"_data.json",sep="")
@@ -124,7 +124,7 @@ for(uniqueID in uniqueIDs){
 
 
 #also delete the usage reports, just to clean up a little
-unlink(list.files("/home/ubuntu/srv/impute-me/www/",pattern="_report\\.pdf$",full.names=T))
+unlink(list.files("/srv/shiny-server/impute-me/www/",pattern="_report\\.pdf$",full.names=T))
 
 
 
@@ -132,7 +132,7 @@ unlink(list.files("/home/ubuntu/srv/impute-me/www/",pattern="_report\\.pdf$",ful
 #also delete the summary reports, just to clean up a little
 age_limit <- 7
 l<-data.frame(
-  f=list.files("/home/ubuntu/srv/impute-me/www",pattern="^summary_",full.names=T),
+  f=list.files("/srv/shiny-server/impute-me/www",pattern="^summary_",full.names=T),
   stringsAsFactors = F
 )
 l[,"time"]<-file.info(l[,"f"])[,"mtime"]

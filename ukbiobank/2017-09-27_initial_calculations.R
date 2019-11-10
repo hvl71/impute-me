@@ -622,7 +622,7 @@ save(data, file="ukbiobank/2017-09-28_semi_curated_version_ukbiobank.rdata")
 rm(list=ls())
 load("~/srv/impute-me/ukbiobank/2017-09-28_semi_curated_version_ukbiobank.rdata")
 # load("ukbiobank/2017-09-28_semi_curated_version_ukbiobank.rdata")
-source("/home/ubuntu/srv/impute-me/functions.R")
+source("/srv/shiny-server/impute-me/functions.R")
 uniqueID <- "id_613z86871"
 
 snps<-data[!duplicated(data[,"SNP"]),]
@@ -674,7 +674,7 @@ save(traits,file="2017-09-28_trait_overoverview.rdata")
 rm(list=ls())
 load("~/srv/impute-me/AllDiseases/2017-02-21_semi_curated_version_gwas_central.rdata")
 # load("ukbiobank/2017-09-28_semi_curated_version_ukbiobank.rdata")
-source("/home/ubuntu/srv/impute-me/functions.R")
+source("/srv/shiny-server/impute-me/functions.R")
 uniqueID <- "id_613z86871"
 
 snps<-data[!duplicated(data[,"SNP"]),]

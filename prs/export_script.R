@@ -1,4 +1,4 @@
-source("/home/ubuntu/srv/impute-me/functions.R")
+source("/srv/shiny-server/impute-me/functions.R")
 
 
 export_function<-function(uniqueID){

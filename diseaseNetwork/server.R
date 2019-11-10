@@ -6,9 +6,9 @@ library("visNetwork")
 
 
 #for real run
-source("/home/ubuntu/srv/impute-me/functions.R")
-load("/home/ubuntu/srv/impute-me/diseaseNetwork/2018-02-21_igraph_object.rdata")
-link_file<-"/home/ubuntu/srv/impute-me/diseaseNetwork/2018-09-18_link_file.xlsx"
+source("/srv/shiny-server/impute-me/functions.R")
+load("/srv/shiny-server/impute-me/diseaseNetwork/2018-02-21_igraph_object.rdata")
+link_file<-"/srv/shiny-server/impute-me/diseaseNetwork/2018-09-18_link_file.xlsx"
 link_all<-read.xlsx(link_file)  
 
 
