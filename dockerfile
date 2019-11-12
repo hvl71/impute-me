@@ -19,5 +19,30 @@
 
 #Look at root@e271f73656ce:/srv/shiny-server/imputeme# cat server_setup.R (from within the container)
 
+#consider multistage build
+
 FROM rocker/shiny
 COPY . //srv/shiny-server/
+RUN mkdir -p ~//srv/misc_files
+
+RUN mkdir -p //srv/shiny-server/impute_dir
+WORKDIR //srv/shiny-server/impute_dir
+
+#get impute2
+RUN wget https://mathgen.stats.ox.ac.uk/impute/impute_v2.3.2_x86_64_static.tgz
+RUN gunzip impute_v2.3.2_x86_64_static.tgz
+RUN tar -xvf impute_v2.3.2_x86_64_static.tar
+
+
+
+#get the reference from 1kgenomes
+RUN wget https://mathgen.stats.ox.ac.uk/impute/ALL_1000G_phase1integrated_v3_impute.tgz
+RUN gunzip ALL_1000G_phase1integrated_v3_impute.tgz
+RUN tar xf ALL_1000G_phase1integrated_v3_impute.tar
+RUN rm ALL_1000G_phase1integrated_v3_impute.tar 
+RUN wget https://mathgen.stats.ox.ac.uk/impute/ALL_1000G_phase1integrated_v3_annotated_legends.tgz
+RUN gunzip ALL_1000G_phase1integrated_v3_annotated_legends.tgz
+RUN tar xf ALL_1000G_phase1integrated_v3_annotated_legends.tar
+RUN rm ALL_1000G_phase1integrated_v3_annotated_legends.tar 
+RUN mv ALL_1000G_phase1integrated_v3_annotated_legends/* ALL_1000G_phase1integrated_v3_impute/
+RUN rmdir ALL_1000G_phase1integrated_v3_annotated_legends
