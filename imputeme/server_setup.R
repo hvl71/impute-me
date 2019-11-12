@@ -105,11 +105,11 @@ ssh-keygen -t rsa -b 4096 -C "impute_me_keys"
 
 
 #setup misc_files
-mkdir /home/ubuntu/misc_files
+mkdir /srv/misc_files
 
 
 #Setup configuration file
-vi /home/ubuntu/misc_files/configuration.R
+vi /srv/misc_files/configuration.R
 # maxImputations <- 1
 # maxImputationsInQueue <- 3
 # serverRole <- "Hub"
@@ -117,9 +117,9 @@ vi /home/ubuntu/misc_files/configuration.R
 
 
 #Setup accepted emails
-vi /home/ubuntu/misc_files/accepted_emails.txt
+vi /srv/misc_files/accepted_emails.txt
 # lassefolkersen@mail.com
 
 
 #make a folder for cron logs
-mkdir /home/ubuntu/misc_files/cron_logs
+mkdir /srv/misc_files/cron_logs

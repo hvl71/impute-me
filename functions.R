@@ -1,7 +1,7 @@
 
 
 # read configuration file
-source("/home/ubuntu/misc_files/configuration.R")
+source("/srv/misc_files/configuration.R")
 if(!exists("maxImputations"))stop("Didn't find maxImputations")
 if(!is.numeric(maxImputations))stop("maxImputations not numeric")
 if(length(maxImputations)!=1)stop("maxImputations not length 1")
@@ -225,7 +225,7 @@ prepare_individual_genome<-function(path, email, filename, updateProgress, prote
   ##checking if this job has not actually been run before
   print("checking if this job has not actually been run before")
   this_person_md5sum <- md5sum(path)
-  all_md5sums_path<-"/home/ubuntu/misc_files/md5sums.txt"
+  all_md5sums_path<-"/srv/misc_files/md5sums.txt"
   if(!file.exists(all_md5sums_path))stop(safeError("Configuration error: md5sums-path not found"))
   all_md5sums<-read.table(all_md5sums_path,sep="\t",stringsAsFactors = F)[,1]
   if(this_person_md5sum %in% all_md5sums){
@@ -235,7 +235,7 @@ prepare_individual_genome<-function(path, email, filename, updateProgress, prote
     unlink(homeFolder,recursive=T)
     stop(safeError("A person with this genome was already analyzed by the system. If this is an error, you can try to re-upload a new version of your DNA-data, e.g. you can go to your data provider (23andme, ancestry.com) and re-download the data you are interested. Then try that file. There will be no block flag for such new file. If this fails, write us an email with uniqueID and ask to have it cleared."))
   }
-  write(this_person_md5sum,file="/home/ubuntu/misc_files/md5sums.txt",append=TRUE)			
+  write(this_person_md5sum,file="/srv/misc_files/md5sums.txt",append=TRUE)			
   
   
   #finalizing: 
@@ -1790,7 +1790,7 @@ run_export_script<-function(uniqueIDs=NULL,modules=NULL, delay=0){
 
 re_check_md5sums<-function(){
   library(tools)
-  all_md5sums<-read.table("/home/ubuntu/misc_files/md5sums.txt",sep="\t",stringsAsFactors = F)[,1]
+  all_md5sums<-read.table("/srv/misc_files/md5sums.txt",sep="\t",stringsAsFactors = F)[,1]
   
   
   otherPersons<-list.files("/home/ubuntu/data",full.names=T)
@@ -1815,7 +1815,7 @@ re_check_md5sums<-function(){
   }
   print(paste(sum(duplicated(all_md5sums)),"of",length(all_md5sums),"were duplicated"))
   all_md5sums <- unique(all_md5sums)
-  writeLines(all_md5sums,"/home/ubuntu/misc_files/md5sums.txt")
+  writeLines(all_md5sums,"/srv/misc_files/md5sums.txt")
 }
 
 
@@ -2521,7 +2521,7 @@ prepare_imputemany_genome<-function(path, email, filename, protect_from_deletion
   
   
   #check if mail adress is in positive list for bulk upload  
-  acceptedMails_path<-"/home/ubuntu/misc_files/accepted_emails.txt"
+  acceptedMails_path<-"/srv/misc_files/accepted_emails.txt"
   if(!file.exists(acceptedMails_path))stop(safeError("Configuration error: Email accepted-emails list not found"))
   acceptedMails<-read.table(acceptedMails_path,stringsAsFactors=F,header=T)
   if(!email%in%acceptedMails[,"email"]){ #bulk-upload must adhere to upload criteria
@@ -2556,7 +2556,7 @@ prepare_imputemany_genome<-function(path, email, filename, protect_from_deletion
   ##checking if this job has not actually been run before
   print("checking if this job has not actually been run before")
   this_person_md5sum <- md5sum(path)
-  all_md5sums_path<-"/home/ubuntu/misc_files/md5sums.txt"
+  all_md5sums_path<-"/srv/misc_files/md5sums.txt"
   if(!file.exists(all_md5sums_path))stop(safeError("Configuration error: md5sums-path not found"))
   all_md5sums<-read.table(all_md5sums_path,sep="\t",stringsAsFactors = F)[,1]
   if(this_person_md5sum %in% all_md5sums){
@@ -2565,7 +2565,7 @@ prepare_imputemany_genome<-function(path, email, filename, protect_from_deletion
     write(m,file="/home/ubuntu/logs/submission/submission_log.txt",append=TRUE)			
     stop(safeError(paste0("This file was already analyzed by the system. Write an email if you wish to clear this flag (or make a small change in your file so it doesn't have the same md5sum, i.e. ",this_person_md5sum,").")))
   }
-  write(this_person_md5sum,file="/home/ubuntu/misc_files/md5sums.txt",append=TRUE)			
+  write(this_person_md5sum,file="/srv/misc_files/md5sums.txt",append=TRUE)			
   
   
   #check if it should be moved to the non-impute server:
@@ -2755,7 +2755,7 @@ prepare_imputemany_genome<-function(path, email, filename, protect_from_deletion
     
     
     #prepare bulk-impute register file
-    imputemany_path <- "/home/ubuntu/misc_files/imputemany_registry.txt"
+    imputemany_path <- "/srv/misc_files/imputemany_registry.txt"
     if(!file.exists(imputemany_path))system(paste("touch",imputemany_path))
     #upload time, has-been-sent,length,  error-sent, email, uniqueIDs
     registry_entry <-paste(upload_time,FALSE, FALSE, length(sampleNames),email, paste(names(sampleNames),collapse=","),collapse="\t")

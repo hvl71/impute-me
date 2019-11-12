@@ -69,7 +69,7 @@ shinyServer(function(input, output) {
 		
 		#load database for comparison
 		#this is a file that contains the GWAS opinions
-		all_opinions_file<-"/home/ubuntu/misc_files/all_opinions.txt"
+		all_opinions_file<-"/srv/misc_files/all_opinions.txt"
 		opinions_in_data<-try(read.table(all_opinions_file,sep="\t",stringsAsFactors=F,header=T))
 		
 		#make robust against non-initialized files
@@ -83,7 +83,7 @@ shinyServer(function(input, output) {
 		
 		#also store this in the all_opinions_file file (for faster loading)
 		line<-paste(c(uniqueID,GRS_beta,real_opinion,real_age,gender,"interactive",format(Sys.time(),"%Y-%m-%d-%H-%M-%S")),collapse="\t")
-		all_opinions_file<-"/home/ubuntu/misc_files/all_opinions.txt"
+		all_opinions_file<-"/srv/misc_files/all_opinions.txt"
 		if(!is.na(GRS_beta) & !is.na(real_age) & !is.na(real_opinion) & uniqueID != "id_613z86871"){ #only save if height is given and it is not the test user
 		  write(line,file=all_opinions_file,append=TRUE)  
 		}

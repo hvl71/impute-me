@@ -10,7 +10,7 @@ source("/srv/shiny-server/functions.R")
 
 emails_to_send <- list()
 
-imputemany_registry_path <-"/home/ubuntu/misc_files/imputemany_registry.txt"
+imputemany_registry_path <-"/srv/misc_files/imputemany_registry.txt"
 
 #upload time, has-been-sent, error_sent, length, email, uniqueIDs
 d <- read.table(imputemany_registry_path,sep=" ",header=F,stringsAsFactors = F)

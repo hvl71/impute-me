@@ -2,7 +2,7 @@
 
 
 #Get all the alleles
-giant_sup_path<-"/home/ubuntu/misc_files/GIANT_height_250k_Supplementary_Tables_20131030.txt"
+giant_sup_path<-"/srv/misc_files/GIANT_height_250k_Supplementary_Tables_20131030.txt"
 
 giant_sup_path<-"C:/Users/FOLK/Documents/Work/Analysis/2014-08-11 pedigree project/GIANT_height_250k_Supplementary_Tables_20131030.txt"
 
@@ -50,7 +50,7 @@ write.table(giant_sup,file="GIANT_modified_table.txt",col.names=NA,sep="\t")
 
 #start a test script
 rm(list=ls())
-giant_sup_path<-"/home/ubuntu/misc_files/GIANT_modified_table.txt"
+giant_sup_path<-"/srv/misc_files/GIANT_modified_table.txt"
 
 # giant_sup_path<-"C:/Users/FOLK/Documents/Work/Analysis/2014-08-11 pedigree project/GIANT_height_250k_Supplementary_Tables_20131030.txt"
 
@@ -80,7 +80,7 @@ for(snp in rownames(giant_sup)){
 
 
 #generating some initial gheight stuff
-heights_registered<-"/home/ubuntu/misc_files/height_registrered.txt"
+heights_registered<-"/srv/misc_files/height_registrered.txt"
 
 for(i in 1:100){
   real_gender<-sample(1:2,1)
@@ -113,7 +113,7 @@ for(i in 1:100){
 
 
 #2015-09-12 getting serious about the background distribution (see scientific_notes.txt)
-heights_pre_registered_file<-"/home/ubuntu/misc_files/background_heights.txt"
+heights_pre_registered_file<-"/srv/misc_files/background_heights.txt"
 heights_pre_registered_file<-"background_heights.txt"
 
 

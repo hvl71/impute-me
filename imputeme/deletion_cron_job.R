@@ -1,6 +1,6 @@
 
 # crontab -e
-# 00 20 * * * Rscript /srv/shiny-server/imputeme/deletion_cron_job.R > /home/ubuntu/misc_files/cron_logs/`date +\%Y\%m\%d\%H\%M\%S`-delete-cron.log 2>&1
+# 00 20 * * * Rscript /srv/shiny-server/imputeme/deletion_cron_job.R > /srv/misc_files/cron_logs/`date +\%Y\%m\%d\%H\%M\%S`-delete-cron.log 2>&1
 
 source("/srv/shiny-server/functions.R")
 

@@ -132,7 +132,7 @@ table(coding_snps[coding_snps[,"SIFT_pred"]%in%"D","Chr"])
 t<-coding_snps[coding_snps[,"SIFT_pred"]%in%"D" & coding_snps[,"Chr"]%in%1,]
 #odd that so many are on chr1
 
-scp lasfol@computerome.cbs.dtu.dk:/home/people/lasfol/2015-11-20_temp_nonsenser/2015-11-20_all_coding_SNPs.rdata /home/ubuntu/misc_files/
+scp lasfol@computerome.cbs.dtu.dk:/home/people/lasfol/2015-11-20_temp_nonsenser/2015-11-20_all_coding_SNPs.rdata /srv/misc_files/
 	
 	
 	#but now we have a list of genotyped missense and nonsense mutation. Nice.
@@ -210,7 +210,7 @@ table(coding_snps[coding_snps[,"SIFT_pred"]%in%"D","Chr"])
 t<-coding_snps[coding_snps[,"SIFT_pred"]%in%"D" & coding_snps[,"Chr"]%in%1,]
 #odd that so many are on chr1
 
-scp lasfol@computerome.cbs.dtu.dk:/home/people/lasfol/2015-11-23_temp_nonsenser/2015-11-23_all_coding_SNPs.rdata /home/ubuntu/misc_files/
+scp lasfol@computerome.cbs.dtu.dk:/home/people/lasfol/2015-11-23_temp_nonsenser/2015-11-23_all_coding_SNPs.rdata /srv/misc_files/
 	
 	
 	#but now we have a list of genotyped missense and nonsense mutation. Nice.

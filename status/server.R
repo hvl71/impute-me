@@ -82,7 +82,7 @@ shinyServer(function(input, output) {
   
   output$text2 <- renderText({
     if(input$insertFastEmail >= 1){
-      fast_queue_path <- "/home/ubuntu/misc_files/fast_queue_emails.txt"
+      fast_queue_path <- "/srv/misc_files/fast_queue_emails.txt"
       imputation_path <- "/home/ubuntu/imputations/"
       
       

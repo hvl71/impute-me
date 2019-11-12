@@ -2,7 +2,7 @@
 # 
 #Strategy - setup this to run every hour on the hour, 
 #
-# 50 * * * * Rscript /srv/shiny-server/imputeme/imputation_cron_job.R > /home/ubuntu/misc_files/cron_logs/`date +\%Y\%m\%d\%H\%M\%S`-impute-cron.log 2>&1
+# 50 * * * * Rscript /srv/shiny-server/imputeme/imputation_cron_job.R > /srv/misc_files/cron_logs/`date +\%Y\%m\%d\%H\%M\%S`-impute-cron.log 2>&1
 
 
 library("mailR")
@@ -71,7 +71,7 @@ if(serverRole== "Node"){
   #and then TRUE or FALSE. The TRUE or FALSE means if a bulk impute is allowed to 
   #take it or not
   #(they can be in priority queue either because they are paid, or because they are error-prone. Don't put error-prone in the bulk imputing line)
-  cmd0 <- paste("ssh ubuntu@",hubAddress," cat /home/ubuntu/misc_files/fast_queue_emails.txt
+  cmd0 <- paste("ssh ubuntu@",hubAddress," cat /srv/misc_files/fast_queue_emails.txt
                 ",sep="")
   f1<-system(cmd0,intern=T)
   Sys.sleep(0.2)

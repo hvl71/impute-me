@@ -154,12 +154,12 @@ sudo git clone https://github.com/lassefolkersen/gene-surfer
 # 	
 # 	
 # #Testing the impute
-# cut --delimiter=" " -f 1-8 /home/ubuntu/impute_dir/impute_v2.3.2_x86_64_static/Example/example.chr22.study.gens > /home/ubuntu/misc_files/test_genome.gen
+# cut --delimiter=" " -f 1-8 /home/ubuntu/impute_dir/impute_v2.3.2_x86_64_static/Example/example.chr22.study.gens > /srv/misc_files/test_genome.gen
 # 
 # 
 # 	
 # 
-# impute2 -m /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/genetic_map_chr22_combined_b37.txt -h /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz -l /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz -g /home/ubuntu/misc_files/test_genome.gen -int 1 21596808 -Ne 20000 -o tmp_impute2.chr22.1 -phase -allow_large_regions
+# impute2 -m /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/genetic_map_chr22_combined_b37.txt -h /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz -l /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz -g /srv/misc_files/test_genome.gen -int 1 21596808 -Ne 20000 -o tmp_impute2.chr22.1 -phase -allow_large_regions
 # 
 # 
 # impute2 \
@@ -175,7 +175,7 @@ sudo git clone https://github.com/lassefolkersen/gene-surfer
 # 
 # 
 # 
-# impute2 -m /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/genetic_map_chr22_combined_b37.txt -h /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz -l /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz -g /home/ubuntu/misc_files/test_genome.gen -int 16050308 16050712 -Ne 20000 -o yytmp_impute2.chr22.6 -phase -allow_large_regions
+# impute2 -m /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/genetic_map_chr22_combined_b37.txt -h /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz -l /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz -g /srv/misc_files/test_genome.gen -int 16050308 16050712 -Ne 20000 -o yytmp_impute2.chr22.6 -phase -allow_large_regions
 # #This here actually works - so when you force SNPs known to be in reference to be in the gen file, 
 # 
 # # zcat /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz | head -n 100
@@ -198,7 +198,7 @@ sudo git clone https://github.com/lassefolkersen/gene-surfer
 # #this is the ALL_1000G version, on a short piece of 23andme genotypes. It runs with no error, but doesn't impute anything.
 # 
 # 
-# impute2 -m /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/genetic_map_chr22_combined_b37.txt -h /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz -l /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz -g /home/ubuntu/misc_files/test_genome.gen -int 16050308 16050712 -Ne 20000 -o yytmp_impute2.chr22.6 -phase -allow_large_regions
+# impute2 -m /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/genetic_map_chr22_combined_b37.txt -h /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz -l /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz -g /srv/misc_files/test_genome.gen -int 16050308 16050712 -Ne 20000 -o yytmp_impute2.chr22.6 -phase -allow_large_regions
 # #This here actually works - so when you force SNPs known to be in reference to be in the gen file, 
 # 
 # 
@@ -208,7 +208,7 @@ sudo git clone https://github.com/lassefolkersen/gene-surfer
 # -m /home/ubuntu/new_version/1000GP_Phase3/genetic_map_chr22_combined_b37.txt \
 # -h /home/ubuntu/new_version/1000GP_Phase3/1000GP_Phase3_chr22.hap.gz \
 # -l /home/ubuntu/new_version/1000GP_Phase3/1000GP_Phase3_chr22.legend.gz \
-# -g /home/ubuntu/misc_files/test_genome.gen \
+# -g /srv/misc_files/test_genome.gen \
 # -int 16050308 16050712 -Ne 20000 -o wmp_impute2.chr22.6 -phase -allow_large_regions
 # #This is the forced in example SNPs - but now it doesn't work?!
 # 
@@ -219,7 +219,7 @@ sudo git clone https://github.com/lassefolkersen/gene-surfer
 # -m /home/ubuntu/new_version/1000GP_Phase3/genetic_map_chr22_combined_b37.txt \
 # -h /home/ubuntu/new_version/1000GP_Phase3/1000GP_Phase3_chr22.hap.gz \
 # -l /home/ubuntu/new_version/1000GP_Phase3/1000GP_Phase3_chr22.legend.gz \
-# -g /home/ubuntu/misc_files/id_562283631.chr22.gen  \
+# -g /srv/misc_files/id_562283631.chr22.gen  \
 # -int 16114244 17661178 -Ne 20000 -o qmp_impute2.chr22.6 -phase -allow_large_regions
 # #This is the 23andme data - it does not work
 # 
@@ -310,7 +310,7 @@ sudo git clone https://github.com/lassefolkersen/gene-surfer
 # 
 # 
 # #Ok try over with the example data
-# cut --delimiter=" " -f 1-8 /home/ubuntu/impute_dir/impute_v2.3.2_x86_64_static/Example/example.chr22.study.gens > /home/ubuntu/misc_files/test_genome.gen
+# cut --delimiter=" " -f 1-8 /home/ubuntu/impute_dir/impute_v2.3.2_x86_64_static/Example/example.chr22.study.gens > /srv/misc_files/test_genome.gen
 # 
 # 
 # 
@@ -461,7 +461,7 @@ sudo git clone https://github.com/lassefolkersen/gene-surfer
 # /home/ubuntu/impute_dir/bin/shapeit -check \
 # --input-ped plinkoutx2_22.ped plinkoutx2_22.map \
 # -M /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/genetic_map_chr22_combined_b37.txt \
-# --input-ref /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz /home/ubuntu/misc_files/sample.reference.txt \
+# --input-ref /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz /srv/misc_files/sample.reference.txt \
 # --output-log W_test
 # 
 # cut -f 4 W_test.snp.strand > exclude_snps_here
@@ -475,7 +475,7 @@ sudo git clone https://github.com/lassefolkersen/gene-surfer
 # /home/ubuntu/impute_dir/bin/shapeit -check \
 # --input-ped plinkoutxx_22.ped plinkoutxx_22.map \
 # -M /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/genetic_map_chr22_combined_b37.txt \
-# --input-ref /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz /home/ubuntu/misc_files/sample.reference.txt \
+# --input-ref /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz /srv/misc_files/sample.reference.txt \
 # --output-log R_test
 # 
 # 
@@ -484,7 +484,7 @@ sudo git clone https://github.com/lassefolkersen/gene-surfer
 # /home/ubuntu/impute_dir/bin/shapeit \
 # --input-ped plinkoutxx_22.ped plinkoutxx_22.map \
 # -M /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/genetic_map_chr22_combined_b37.txt \
-# --input-ref /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz /home/ubuntu/misc_files/sample.reference.txt \
+# --input-ref /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz /srv/misc_files/sample.reference.txt \
 # -O T_test
 # 
 # 
@@ -569,7 +569,7 @@ sudo git clone https://github.com/lassefolkersen/gene-surfer
 # /home/ubuntu/impute_dir/bin/shapeit -check \
 # --input-ped plinkoutx2_22.ped plinkoutx2_22.map \
 # -M /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/genetic_map_chr22_combined_b37.txt \
-# --input-ref /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz /home/ubuntu/misc_files/sample.reference.txt \
+# --input-ref /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz /srv/misc_files/sample.reference.txt \
 # --output-log W_test
 # 
 # cut -f 4 W_test.snp.strand > exclude_snps_here
@@ -583,7 +583,7 @@ sudo git clone https://github.com/lassefolkersen/gene-surfer
 # /home/ubuntu/impute_dir/bin/shapeit -check \
 # --input-ped plinkoutxx_22.ped plinkoutxx_22.map \
 # -M /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/genetic_map_chr22_combined_b37.txt \
-# --input-ref /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz /home/ubuntu/misc_files/sample.reference.txt \
+# --input-ref /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz /srv/misc_files/sample.reference.txt \
 # --output-log R_test
 # 
 # 
@@ -592,7 +592,7 @@ sudo git clone https://github.com/lassefolkersen/gene-surfer
 # /home/ubuntu/impute_dir/bin/shapeit \
 # --input-ped plinkoutxx_22.ped plinkoutxx_22.map \
 # -M /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/genetic_map_chr22_combined_b37.txt \
-# --input-ref /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz /home/ubuntu/misc_files/sample.reference.txt \
+# --input-ref /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.hap.gz /home/ubuntu/impute_dir/ALL_1000G_phase1integrated_v3_impute/ALL_1000G_phase1integrated_v3_chr22_impute.legend.gz /srv/misc_files/sample.reference.txt \
 # -O T_test
 # 
 # 

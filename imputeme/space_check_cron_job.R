@@ -1,6 +1,6 @@
 
 # crontab -e
-# 00 20 * * * Rscript /srv/shiny-server/imputeme/space_check_cron_job.R > /home/ubuntu/misc_files/cron_logs/`date +\%Y\%m\%d\%H\%M\%S`-space-check-cron.log 2>&1
+# 00 20 * * * Rscript /srv/shiny-server/imputeme/space_check_cron_job.R > /srv/misc_files/cron_logs/`date +\%Y\%m\%d\%H\%M\%S`-space-check-cron.log 2>&1
 
 library("mailR")
 library("rJava")
