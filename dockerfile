@@ -17,5 +17,7 @@
 #Issues
 #https://github.com/rstudio/shiny/issues/1929
 
+#Look at root@e271f73656ce:/srv/shiny-server/imputeme# cat server_setup.R (from within the container)
+
 FROM rocker/shiny
 COPY . //srv/shiny-server/
